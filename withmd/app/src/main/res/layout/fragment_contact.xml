@@ -18,15 +18,33 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="fill_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:layout_marginTop="175dp"
-        android:gravity="center_horizontal"
-        android:text="Edit fragment_contact.xml to change the appearance"
+        android:text="Call Us"
+        android:id="@+id/callme"
         android:layout_below="@+id/label"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:onClick="contact" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Us On Maps"
+        android:id="@+id/LaunchMaps"
+        android:layout_below="@+id/callme"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:onClick="contact"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Email"
+        android:id="@+id/sendemail"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="contact"/>
 
 </RelativeLayout>

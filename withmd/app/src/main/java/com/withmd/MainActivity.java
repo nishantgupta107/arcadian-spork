@@ -1,5 +1,7 @@
 package com.withmd;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     }
 
 
+
+
+
+
     private void displayView(int position) {
         Fragment fragment = null;
         String title = getString(R.string.app_name);
@@ -136,4 +142,44 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             getSupportActionBar().setTitle(title);
         }
     }
-}
+
+         public void contact(View view) {
+
+             Intent intent = null, chooser=null;
+
+             if(view.getId()==R.id.callme) {
+                 chooser= new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+918860695024"));
+
+                 startActivity(chooser);
+                 tToast("Calling WE-IP");
+             }
+
+             if(view.getId()==R.id.LaunchMaps) {
+                 intent = new Intent(Intent.ACTION_VIEW);
+                 intent.setData(Uri.parse("geo:28.721234,77.141775"));
+                 chooser=Intent.createChooser(intent,"Launch Maps");
+                 startActivity(chooser);
+             }
+
+             if(view.getId()==R.id.sendemail) {
+                 intent = new Intent(Intent.ACTION_SEND);
+                 intent.setData(Uri.parse("mailto:"));
+                 String[] to= {"pushkardua@gmail.com","nishantgupta107@gmail.com"};
+                 intent.putExtra(Intent.EXTRA_EMAIL,to);
+                 intent.putExtra(Intent.EXTRA_SUBJECT, "WE-IP Feedback");
+                 intent.putExtra(Intent.EXTRA_TEXT,"Sent Via App");
+                 intent.setType("message/rfc822");
+                 chooser=Intent.createChooser(intent,"Send Email");
+                 startActivity(chooser);
+             }
+         }
+
+
+        private void tToast(String s) {
+
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(getApplicationContext(), s, duration);
+            toast.show();
+        }
+
+    }

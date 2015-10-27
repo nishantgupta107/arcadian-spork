@@ -1,11 +1,13 @@
 package com.withmd.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.withmd.R;
 
@@ -41,4 +43,20 @@ public class ContactFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+    public void callmeclicked11(View view) {
+
+        tToast1("Go button clicked!");
+
+    }
+
+    private void tToast1(String s) {
+
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(getActivity().getApplicationContext(), s, duration);
+        toast.show();
+    }
+
+
 }
+
